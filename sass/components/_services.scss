@@ -1,0 +1,39 @@
+.services {
+    @media screen and (max-width: 1199px) {
+       display: none; 
+    }
+    @include Padding($s-top: 47px, $s-bottom: 94px, $s-left: 0, $s-right: 0);
+}
+
+.services__list {
+    @extend %ul;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.services__item {
+    position: relative;
+    flex-basis: calc((100% - 60px) / 3);
+}
+
+.text-place {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 70px;
+    background-color: $text-place-color;
+}
+
+.services__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 0);
+    font-weight: 700;
+    @include FontSLineH();
+    text-transform: uppercase;
+    color: $primary-white-color;
+}

@@ -1,0 +1,53 @@
+.benefits {
+    @media screen and (min-width: 1200px){
+        @include Padding($s-top: 94px, $s-bottom: 47px, $s-left: 0, $s-right: 0);
+    }
+}
+
+.benefits__list {
+    @extend %ul;
+    @media screen and (min-width: 768px){
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+}
+
+.benefits__item {
+    @media screen and (max-width: 767px) {
+        &:not(:last-child) {
+            @include Margin($s-top: 0, $s-bottom: 30px, $s-left: 0, $s-right: 0);
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        flex-basis: calc((100% - 30px) / 2);
+    }
+
+    @media screen and (min-width: 1200px){
+        flex-basis: calc((100% - 90px) / 4);
+    }
+}
+.thumb {
+    
+    @include centeredFlex($type: flex, $alicentered: center, $jucentered: center);
+    @include Margin($s-top: 0, $s-bottom: 30px, $s-left: 0, $s-right: 0);
+    height: 120px;
+    border-radius: 4px;
+    background-color: $accent-bg-color;
+}
+
+.benefits__title {
+    @media screen and (max-width: 767px) {
+        text-align: center;
+    }
+    @include Margin($s-top: 0, $s-bottom: 10px, $s-left: 0, $s-right: 0);
+    color: $title-text-color;
+    text-transform: uppercase;
+    @include FontSLineH($Fsize: 14px, $Lheight: 1.14);
+}
+
+.benefits__text {
+    @include Margin();
+    @include FontSLineH($Fsize: 14px, $Lheight: 1.71);
+}

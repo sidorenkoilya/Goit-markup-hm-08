@@ -1,0 +1,103 @@
+.decision {
+    max-width: 1600px;
+    // height: 400px;
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: auto, $s-right: auto);
+    @include Padding($s-top: 118px, $s-bottom: 118px, $s-left: 0, $s-right: 0);
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $decision-bg-color;
+    text-align: center;
+
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url(../images/hero/mob-hero-1.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-resolution: 2dppx){
+        background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+        url(../images/hero/mob-hero-2.jpg);
+    }
+        
+    @media screen and (min-width:768px) {
+        background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+        url(../images/hero/tablet-hero-1.jpg);
+
+        @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        (-webkit-min-device-pixel-ratio: 2),
+        screen and (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+            url(../images/hero/tablet-hero-2.jpg);
+        }
+            
+    }
+
+    @media screen and(min-width: 1200px) {
+        @include Padding($s-top: 200px, $s-bottom: 200px, $s-left: 0, $s-right: 0);
+
+        background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+        url(../images/hero/desktop-hero-1.jpg);
+                
+        @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        (-webkit-min-device-pixel-ratio: 2),
+        screen and (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+            url(../images/hero/desktop-hero-2.jpg);
+        }
+    }
+}
+
+.decision__text {
+    max-width: 360px;
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: auto, $s-right: auto);
+
+    @media screen and(min-width: 1200px) {
+        max-width: 700px;
+    }
+}
+
+.decision__title {
+    @include Margin($s-top: 0, $s-bottom: 30px, $s-left: 0, $s-right: 0);
+    font-weight: 900;
+    @include FontSLineH($Fsize: 26px, $Lheight: 1.62);
+    @include LetterSpacing ($size: 0.06em);
+    text-transform: uppercase;
+    color: $primary-white-color;
+
+    @media screen and(min-width: 1200px) {
+        @include FontSLineH($Fsize: 44px, $Lheight: 1.36);
+    }
+
+}
+
+.decision__button {
+    display: block;
+    white-space: nowrap;
+    @include Padding($s-top: 10px, $s-bottom: 10px, $s-left: 24px, $s-right: 24px);
+    height: 50px;
+    width: 200px;
+    font-weight: 700;
+    @include FontSLineH($Fsize: 16px, $Lheight: 1.88);
+    @include LetterSpacing ($size: 0.06em);
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: auto, $s-right: auto);
+
+    transition: background-color 250ms $cubic-bezier, color 250ms $cubic-bezier,
+        box-shadow 250ms $cubic-bezier;
+        &:hover,
+        &:focus{
+            color: $primary-white-color;
+            background-color: $accent-color;
+            box-shadow: $box-shadow-primary;
+        }
+    @media screen and(min-width: 1200px) {
+        @include Padding($s-top: 10px, $s-bottom: 10px, $s-left: 32px, $s-right: 32px);
+
+    }    
+}

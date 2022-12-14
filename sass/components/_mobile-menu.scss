@@ -1,0 +1,161 @@
+.menu-button {
+    @media screen and (max-width: 767px) {
+        display: inline-flex;
+        padding: 11px;
+        border: none;
+        background-color: transparent;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        margin-left: auto;
+        color: $title-text-color;
+    }
+    
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+
+}
+
+.menu-button--cross{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.mobile-close__icon{
+    fill: currentColor;
+
+    .menu-button:hover &,
+    .menu-button:focus &{
+    fill: $accent-color;
+    }
+}
+
+.mobile-open__icon{
+    fill: currentColor;
+
+    .menu-button:hover &,
+    .menu-button:focus &{
+    fill: $accent-color;
+    }
+}
+
+.menu-container {
+    @media screen and (max-width: 767px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        width: 100vw;
+        height: 100vh;
+        @include Padding($s-top: 48px, $s-bottom: 48px, $s-left: 40px, $s-right: 40px);
+        background: #FFFFFF;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
+
+        transform: translateX(100%);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        transition: transform 250ms $cubic-bezier;
+
+        &.is-open {
+            transform: translateX(0);
+        }
+    }
+    
+    
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
+.mobile-menu{
+    
+    @extend %ul;
+    @include Margin($s-top: 0, $s-bottom: auto, $s-left: 0, $s-right: 0);
+        
+            &__item:not(:last-child) {
+                @include Margin($s-top: 0, $s-bottom: 32px, $s-left: 0, $s-right: 0);
+            }
+
+}
+
+.mobile-menu__link{
+    @extend %a;
+    font-weight: 500;
+    @include FontSLineH ($Fsize: 40px, $Lheight: 1.18);
+    @include LetterSpacing ($size: 0.02em);
+    color: $title-text-color;
+        &:hover,
+        &:focus{
+            color: $accent-color;
+        }
+
+}
+
+.mobile-menu__link--current{
+    color: $accent-color;
+}
+
+.mobile-contact{
+    @extend %ul;
+    @include Margin($s-top: 0, $s-bottom: 64px, $s-left: 0, $s-right: 0);
+
+    &:not(:last-child) {
+        @include Margin($s-top: 0, $s-bottom: 32px, $s-left: 0, $s-right: 0);
+    }
+
+}
+
+.mobile-contact__link{
+    @extend %a;
+    font-weight: 500;
+    @include FontSLineH ($Fsize: 24px, $Lheight: 1.17);
+    @include LetterSpacing ($size: 0.02em);
+    color: $primary-text-color;
+    &:hover,
+    &:focus{
+        color: $accent-color;
+    }
+}
+
+.mobile-contact__link--color{
+    @include FontSLineH ($Fsize: 34px, $Lheight: 1.18);
+    color: $accent-color;
+
+}
+
+.mobile-soc{
+    flex-wrap: wrap;
+    @extend %ul;
+    @include centeredFlex($type: flex, $alicentered: stretch, $jucentered: flex-start);
+
+}
+
+.mobile-soc__item{
+    @include centeredFlex($type: flex, $alicentered: center, $jucentered: flex-start);
+
+        &:not(:last-child)::after {
+            content: '';
+                display: inline-block;
+                @include Margin($s-top: 0, $s-bottom: 0, $s-left: 10px, $s-right: 10px);
+                width: 1px;
+                height: 22px;
+                border: 1px solid rgba(33, 33, 33, 0.2);}
+
+}
+
+.mobile-soc__link{
+    @extend %a;
+    font-weight: 500;
+    @include FontSLineH ($Fsize: 18px, $Lheight: 1.22);
+    @include LetterSpacing ($size: 0.02em);
+    color: $accent-color;
+    &:hover,
+    &:focus{
+        color: $accent-color;
+    }
+}

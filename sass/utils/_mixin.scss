@@ -1,0 +1,26 @@
+@mixin Padding($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 0) {
+    padding-top: $s-top;
+    padding-bottom: $s-bottom;
+    padding-left: $s-left;
+    padding-right: $s-right;
+}
+@mixin centeredFlex($type: flex, $alicentered: center, $jucentered: center){
+    display: $type;
+    align-items: $alicentered;
+    justify-content: $jucentered;
+}
+@mixin Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 0){
+    margin-top: $s-top;  
+    margin-bottom: $s-bottom;
+    margin-left: $s-left;
+    margin-right: $s-right;
+}
+@mixin FontSLineH ($Fsize: 14px, $Lheight: 1.14) {
+    font-size: $Fsize;
+    line-height: $Lheight; 
+}
+@mixin LetterSpacing ($size: 0.03em) {
+    letter-spacing: $size;
+}
+
+// @include centeredFlex($type: inline-block, $alicentered: stretch, $jucentered: flex-start);

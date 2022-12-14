@@ -1,0 +1,77 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    @include LetterSpacing ();
+    color:$primary-text-color;
+    background-color: $primary-white-color;
+}
+
+.container {
+    width: 100%;
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: auto, $s-right: auto);
+    @include Padding($s-top: 0, $s-bottom: 0, $s-left: 15px, $s-right: 15px);
+    
+    @media screen and (min-width: 480px) {
+        width: 480px;
+    }
+    @media screen and (min-width: 768px) {
+        width: 768px;
+    }
+    @media screen and (min-width: 1200px) {
+        width: 1200px;
+    }
+}
+
+.image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.logo {
+    font-family: 'Raleway', sans-serif;
+    @include FontSLineH ($Fsize: 24px, $Lheight: 1.17);
+    text-decoration: none;
+    color: $accent-color;
+    @include Padding($s-top: 16px, $s-bottom: 16px, $s-left: 0, $s-right: 0);
+
+    @media screen and (min-width: 1200px){
+        @include FontSLineH ($Fsize: 26px, $Lheight: 1.19);
+    }
+
+    
+}
+
+.section {
+    @include Padding($s-top: 60px, $s-bottom: 60px, $s-left: 0, $s-right: 0);
+        @media screen and (min-width: 1200px) {
+            @include Padding($s-top: 94px, $s-bottom: 94px, $s-left: 0, $s-right: 0);
+        }
+}
+.section__title {
+    @include Margin($s-top: 0, $s-bottom: 30px, $s-left: 0, $s-right: 0);
+    @include FontSLineH ($Fsize: 28px, $Lheight: 1.18);
+    text-align: center;
+    color: $title-text-color;
+    
+    @media screen and (min-width: 1200px) {
+        @include Margin($s-top: 0, $s-bottom: 50px, $s-left: 0, $s-right: 0);
+        @include FontSLineH ($Fsize: 36px, $Lheight: 1.17); 
+    }
+}
+

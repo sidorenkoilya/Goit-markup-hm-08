@@ -1,0 +1,87 @@
+.team {
+    background-color: $accent-bg-color
+}
+
+.team__list {
+    @extend %ul;
+    
+    @media screen and (min-width: 768px){
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        text-align: center;
+    }
+
+}
+
+.team__item {
+    background-color: $primary-white-color;
+    box-shadow: $box-shadow-third-fourth;
+    border-radius: 0px 0px 4px 4px;
+
+    &:not(:last-child) {
+        @media screen and (max-width: 767px) {
+            margin-bottom: 30px;
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        flex-basis: calc((100% - 30px) / 2);
+    }
+
+    @media screen and (min-width: 1200px){
+        flex-basis: calc((100% - 90px) / 4);
+    }
+    
+}
+
+.team__title {
+    @include Margin($s-top: 0, $s-bottom: 10px, $s-left: 0, $s-right: 0);
+    font-weight: 500;
+    @include FontSLineH($Fsize: 16px, $Lheight: 1.19);
+    color: $title-text-color;
+    
+}
+
+.team__content {
+    @media screen and (max-width: 767px) {
+        text-align: center;
+    }
+    
+    
+    @include Padding($s-top: 30px, $s-bottom: 30px, $s-left: 10px, $s-right: 10px);
+}
+
+.team__text {
+    @include Margin($s-top: 0, $s-bottom: 16px, $s-left: 0, $s-right: 0);
+    @include FontSLineH($Fsize: 16px, $Lheight: 1.19);
+}
+
+.soclist {
+    @extend %ul;
+    @include centeredFlex($type: flex, $alicentered: center, $jucentered: center);
+}
+
+.soclist__item:not(:last-child) {
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 10px);
+}
+
+.soclist__link {
+    @include centeredFlex($type: flex, $alicentered: center, $jucentered: center);
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    color: $icon-link-color;
+
+    transition: background-color 250ms $cubic-bezier, color 250ms $cubic-bezier;
+        &:hover,
+        &:focus{
+            color: $primary-white-color;
+            background-color: $accent-color;
+        }
+
+}
+
+.soclist__icon {
+    fill: currentColor;
+}

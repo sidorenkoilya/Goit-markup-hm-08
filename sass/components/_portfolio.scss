@@ -1,0 +1,140 @@
+
+
+.portfolio__list {
+    @extend %ul;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 15px;
+    @include Margin($s-top: 0, $s-bottom: 40px, $s-left: 0, $s-right: 0);
+
+    @media screen and (min-width: 768px) {
+        @include Margin($s-top: 0, $s-bottom: 30px, $s-left: 0, $s-right: 0);
+        justify-content: center;
+    }
+
+    @media screen and (min-width: 1200px){
+        @include Margin($s-top: 0, $s-bottom: 50px, $s-left: 0, $s-right: 0);
+    }
+}
+
+.portfolio__item:not(:last-child) {
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 8px);
+}
+
+.portfolio__button {
+    @include Padding($s-top: 6px, $s-bottom: 6px, $s-left: 22px, $s-right: 22px);
+    min-height: 38px;
+    font-weight: 500;
+    @include FontSLineH($Fsize: 16px, $Lheight: 1.63);
+    @include LetterSpacing ();
+    border-color: transparent;
+    background-color: $accent-bg-color;
+    cursor: pointer;
+    border-radius: 4px;
+
+    transition: background-color 250ms $cubic-bezier, color 250ms $cubic-bezier,
+        box-shadow 250ms $cubic-bezier;
+            &:hover,
+            &:focus{
+                color: $primary-white-color;
+                background-color: $accent-color;
+                box-shadow: $box-shadow-secondary;
+            }
+}
+
+.examples {
+    @extend %ul;
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+}
+
+.examples__item {
+    &:not(:last-child) {
+            @media screen and (max-width: 767px) {
+                margin-bottom: 30px;
+            }
+    }
+    
+    @media screen and (min-width: 768px) {
+        flex-basis: calc((100% - 30px) / 2);
+    }
+
+    @media screen and (min-width: 1200px) {
+        flex-basis: calc((100% - 60px) / 3);
+    }
+}
+
+.examples__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    @extend %a;
+    transition: box-shadow 250ms $cubic-bezier;
+        &:hover,
+        &:focus{
+            box-shadow: $box-shadow-third;
+        }
+        &:hover .overlay,
+        &:focus .overlay{
+            transform: translateY(0);
+            opacity: 1;
+        }
+}
+
+.examples__thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include FontSLineH($Fsize: 18px, $Lheight: 1.56);
+    background-color: $bg-overlay;
+    color: $primary-white-color;
+    transform: translateY(100%);
+    opacity: 0;
+
+    transition: transform 250ms $cubic-bezier, opacity 250ms $cubic-bezier;
+}
+
+.overlay__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include centeredFlex($type: block, $alicentered: stretch, $jucentered: flex-start);
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 0);
+    width: 322px;
+    max-height: 100%;
+
+    transform: translate(-50%, -50%);
+}
+
+.examples__content {
+    @include Padding($s-top: 20px, $s-bottom: 20px, $s-left: 24px, $s-right: 24px);
+    border-bottom: 1px solid $border-color-portf;
+    border-right: 1px solid $border-color-portf;
+    border-left: 1px solid $border-color-portf;
+    flex-grow: 1;
+    
+}
+
+.examples__title {
+    @include Margin($s-top: 0, $s-bottom: 4px, $s-left: 0, $s-right: 0);
+    @include FontSLineH($Fsize: 18px, $Lheight: 2);
+    @include LetterSpacing ($size: 0.06em);
+    color: $title-text-color;
+}
+
+.examples__text {
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 0);
+    @include FontSLineH($Fsize: 16px, $Lheight: 1.88);
+    color: $primary-text-color;
+}

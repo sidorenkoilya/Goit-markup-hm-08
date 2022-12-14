@@ -1,0 +1,141 @@
+.page-header {
+    border-bottom: 1px solid $border-color-header;
+}
+
+.header {
+    @media screen and (min-width: 768px) {
+        @include centeredFlex($type: flex, $alicentered: center, $jucentered: flex-start);
+    }
+}
+
+.site-nav {
+    @include centeredFlex($type: flex, $alicentered: center, $jucentered: flex-start);
+}
+
+.logo__style {
+    color: $logo-color;
+}
+
+
+.site-nav__list {
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+
+    @extend %ul;
+    @include centeredFlex($type: flex, $alicentered: center, $jucentered: flex-start);
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: 88px, $s-right: 0);
+
+    @media screen and (min-width: 1200px) {
+        @include Margin($s-top: 0, $s-bottom: 0, $s-left: 93px, $s-right: 0);
+    }
+
+}
+    
+
+.site-nav__item {
+    position: relative;
+        &:not(:last-child) {
+                @include Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 50px);
+            }
+}
+
+.site-nav__link {
+    @extend %a;
+    @include centeredFlex($type: block, $alicentered: stretch, $jucentered: flex-start);
+    @include Padding($s-top: 32px, $s-bottom: 32px, $s-left: 0, $s-right: 0);
+    font-weight: 500;
+    @include FontSLineH($Fsize: 14px, $Lheight: 1.14);
+    @include LetterSpacing ($size: 0.02em);
+    color: $title-text-color;
+
+    transition: color 250ms $cubic-bezier;
+        &:hover,
+        &:focus{
+            color: $accent-color;
+        }
+}
+
+.site-nav__link--current::after {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: $accent-color;
+    border-radius: 2px;
+}
+
+.site-nav__link--current {
+    color: $accent-color;
+}
+
+.site-contact {
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+
+    @extend %ul;
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: auto, $s-right: 0);
+
+    @media screen and (min-width: 1200px) {
+        @include centeredFlex($type: flex, $alicentered: stretch, $jucentered: flex-start);
+    }
+
+}
+
+.site-contact__item:not(:last-child) {
+    @include Margin($s-top: 0, $s-bottom: 10px, $s-left: 0, $s-right: 0);
+
+    @media screen and (min-width: 1200px) {
+        @include Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 50px);
+    }
+    
+}
+
+.site-contact__link {
+    @extend %a;
+    @include centeredFlex($type: flex, $alicentered: center, $jucentered: flex-start);
+    font-weight: 500;
+    @include FontSLineH($Fsize: 12px, $Lheight: 1.17);
+    @include LetterSpacing ($size: 0.02em);
+    color: $primary-text-color;
+
+    transition: color 250ms $cubic-bezier;
+        &:hover,
+        &:focus{
+            color: $accent-color;
+        }
+    
+    @media screen and (min-width: 1200px) {
+        @include centeredFlex($type: flex, $alicentered: center, $jucentered: center);
+        @include FontSLineH($Fsize: 14px, $Lheight: 1.14);
+        @include Padding($s-top: 32px, $s-bottom: 32px, $s-left: 0, $s-right: 0); 
+    }    
+     
+        
+}
+
+.site-contact__icon {
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1199px){
+        width: 14px;
+        height: 10px;
+        @include Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 8px);
+    }
+        
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 10px);
+    fill: currentColor;
+
+}
+
+.site-contact__icon--tel{
+    @media screen and (min-width: 768px) and (max-width: 1199px){
+    width: 10px;
+    height: 14px;
+    }
+}

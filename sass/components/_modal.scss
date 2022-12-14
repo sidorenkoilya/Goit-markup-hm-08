@@ -1,0 +1,226 @@
+.backdrop {
+    @include Padding($s-top: 94px, $s-bottom: 94px, $s-left: 15px, $s-right: 15px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $backdrop-bg-color;
+    opacity: 1;
+    overflow-y: scroll;
+
+    transition: opacity 250ms $cubic-bezier, visibility 250ms $cubic-bezier;
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 480px;
+    width: 100%;
+    min-height: 609px;
+    background-color: $primary-white-color;
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms $cubic-bezier;
+
+    @media screen and (min-width: 1200px) {
+        max-width: 528px;
+        width: 100%;
+        min-height: 581px;
+    }
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.modal_button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    background: $primary-white-color;
+    border: 1px solid $border-color-one;
+    border-radius: 50%;
+    cursor: pointer;
+        &:hover,
+        &:focus{
+            color: $accent-color
+        }
+}
+
+.modal__icon {
+    fill: currentColor;
+    transition: color 250ms $cubic-bezier;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+}
+
+.form-modal {
+    display: flex;
+    flex-direction: column;
+    @include Padding($s-top: 40px, $s-bottom: 40px, $s-left: 40px, $s-right: 40px);
+    // width: 528px;
+    width: 100%;
+    height: 100%;
+    @include FontSLineH($Fsize: 12px, $Lheight: 1.17);
+    @include LetterSpacing ($size: 0.01em);
+    color: $title-text-color;
+}
+
+.form-modal__title {
+   
+    @media screen and (max-width: 1199px){
+        line-height: 1.5;
+    }
+    
+    @include Margin($s-top: 0, $s-bottom: 12px, $s-left: 0, $s-right: 0);
+    @include FontSLineH($Fsize: 20px, $Lheight: 1.15);
+    text-align: center;
+    @include LetterSpacing ();
+}
+
+.form-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: $title-text-color;
+        &:nth-child(-n + 4) {
+            @include Margin($s-top: 0, $s-bottom: 10px, $s-left: 0, $s-right: 0);
+        }
+}
+
+.form-field__label {
+    @include Margin($s-top: 0, $s-bottom: 4px, $s-left: 0, $s-right: 0);
+    color: $primary-text-color;
+}
+
+.form-field__icon {
+    position: absolute;
+    top: 55%;
+    left: 15px;
+    fill: currentColor;
+    transition: fill 250ms $cubic-bezier;
+        .form-field__input:hover~&,
+        .form-field__input:focus~&{
+            fill: $accent-color
+        }
+}
+
+.form-field__input {
+    @include Padding($s-top: 0, $s-bottom: 0, $s-left: 45px, $s-right: 0);
+    height: 40px;
+    border: 1px solid $border-color-second;
+    border-radius: 4px;
+        &:hover,
+        &:focus {
+            outline: transparent;
+            border-color: $accent-color;
+        }
+}
+
+.textarea-input {
+    @include Padding($s-top: 12px, $s-bottom: 12px, $s-left: 16px, $s-right: 16px);
+    resize: none;
+    border: 1px solid $border-color-second;
+    border-radius: 4px;
+        &:hover,
+        &:focus{
+            outline: transparent;
+            border-color: $accent-color;
+        }
+}
+
+.form-field__input, .textarea-input {
+    transition: border-color 250ms $cubic-bezier;
+}
+
+.textarea-input::placeholder {
+    @include FontSLineH($Fsize: 12px, $Lheight: 1.17);
+    @include LetterSpacing ($size: 0.01em);
+    color: $textarea-input-color;
+}
+
+.newsletter {
+
+    @media screen and (max-width: 1199px) {
+        @include FontSLineH($Fsize: 12px, $Lheight: 1.17);
+    }
+
+    @include centeredFlex($type: flex, $alicentered: center, $jucentered: none);
+    @include Margin($s-top: 20px, $s-bottom: 30px, $s-left: 0, $s-right: 0);
+    @include FontSLineH($Fsize: 14px, $Lheight: 1.71);
+    @include LetterSpacing ();
+    color: $primary-text-color;
+
+}
+
+.newsletter__checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.icon-list {
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: 12px, $s-right: 7px);
+}
+
+.icon-list__blu {
+    opacity: 0;
+    transition: opacity 250ms $cubic-bezier;
+        .newsletter__checkbox:checked~.icon-list &{
+            opacity: 1;
+        }
+}
+
+.icon-list__square {
+    opacity: 1;
+    transition: opacity 250ms $cubic-bezier;
+        .newsletter__checkbox:checked~.icon-list & {
+            opacity: 0;
+        }
+}
+
+.newsletter__terms {
+    @include Margin($s-top: 0, $s-bottom: 0, $s-left: 5px, $s-right: 0);
+    text-decoration-line: underline;
+    color: $accent-color;
+}
+
+.form-modal__button {
+    @include centeredFlex($type: flex, $alicentered: center, $jucentered: flex-start);
+    @include Padding($s-top: 10px, $s-bottom: 10px, $s-left: 52px, $s-right: 52px);
+    width: 200px;
+    height: 50px;
+    align-self: center;
+    font-weight: 700;
+    @include FontSLineH($Fsize: 16px, $Lheight: 1.88);
+    @include LetterSpacing ($size: 0.06em);
+    background-color: $accent-color;
+    color: $primary-white-color;
+    border-color: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+
+    transition: box-shadow 250ms $cubic-bezier;
+        &:hover,
+        &:focus{
+            box-shadow: $box-shadow-primary;
+            background-color: $send-btn-color;
+        }
+}
+
