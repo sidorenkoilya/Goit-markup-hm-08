@@ -1,87 +1,78 @@
 .team {
-    background-color: $accent-bg-color
+    @extend %section;
+    padding-top: 60px;
+    background-color: getColor('team-background');
 }
 
 .team__list {
-    @extend %ul;
-    
-    @media screen and (min-width: 768px){
+    @include media-min(tablet){
         display: flex;
         flex-wrap: wrap;
-        gap: 30px;
-        text-align: center;
+        margin: -15px;
+    }
+
+    @include media-min(desktop){
+        flex-wrap: nowrap;
+        margin: 0;
     }
 
 }
 
 .team__item {
-    background-color: $primary-white-color;
-    box-shadow: $box-shadow-third-fourth;
-    border-radius: 0px 0px 4px 4px;
+    &:not(:last-child){
+        margin-bottom: 30px;
+    }
+    @include media-min (tablet){
+        margin: 15px;
+        width: calc((100% - 4 * 15px) / 2);
+    }
 
-    &:not(:last-child) {
-        @media screen and (max-width: 767px) {
-            margin-bottom: 30px;
+    @include media-min (desktop){
+        margin: 0;
+        width: 100%;
+
+        &:not(:last-child){
+            margin-right:30px;
         }
     }
-
-    @media screen and (min-width: 768px){
-        flex-basis: calc((100% - 30px) / 2);
-    }
-
-    @media screen and (min-width: 1200px){
-        flex-basis: calc((100% - 90px) / 4);
-    }
-    
 }
 
 .team__title {
-    @include Margin($s-top: 0, $s-bottom: 10px, $s-left: 0, $s-right: 0);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.17;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 0px;
+}
+
+.team__name {
     font-weight: 500;
-    @include FontSLineH($Fsize: 16px, $Lheight: 1.19);
-    color: $title-text-color;
-    
+    font-size: 16px;
+    line-height: 1.19;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-.team__content {
-    @media screen and (max-width: 767px) {
-        text-align: center;
-    }
-    
-    
-    @include Padding($s-top: 30px, $s-bottom: 30px, $s-left: 10px, $s-right: 10px);
+
+.team__position {
+    margin-bottom: 16px;
+
+    font-size: 16px;
+    line-height: 1.19;
+    text-align: center;
+    color: getColor('secondary-text-color');
 }
 
-.team__text {
-    @include Margin($s-top: 0, $s-bottom: 16px, $s-left: 0, $s-right: 0);
-    @include FontSLineH($Fsize: 16px, $Lheight: 1.19);
+.team__container {
+    background-color: getColor('white');
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 0px 0px 4px 4px;
 }
 
-.soclist {
-    @extend %ul;
-    @include centeredFlex($type: flex, $alicentered: center, $jucentered: center);
-}
+.team__card {
+    height: 100%;
+    width: 100%;
 
-.soclist__item:not(:last-child) {
-    @include Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 10px);
-}
-
-.soclist__link {
-    @include centeredFlex($type: flex, $alicentered: center, $jucentered: center);
-    height: 44px;
-    width: 44px;
-    border-radius: 50%;
-    color: $icon-link-color;
-
-    transition: background-color 250ms $cubic-bezier, color 250ms $cubic-bezier;
-        &:hover,
-        &:focus{
-            color: $primary-white-color;
-            background-color: $accent-color;
-        }
-
-}
-
-.soclist__icon {
-    fill: currentColor;
+    margin-bottom: 30px;
 }

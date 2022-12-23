@@ -1,26 +1,55 @@
-@mixin Padding($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 0) {
-    padding-top: $s-top;
-    padding-bottom: $s-bottom;
-    padding-left: $s-left;
-    padding-right: $s-right;
-}
-@mixin centeredFlex($type: flex, $alicentered: center, $jucentered: center){
+// centered Items (@include)
+@mixin centeredFlex($type: flex){
     display: $type;
-    align-items: $alicentered;
-    justify-content: $jucentered;
-}
-@mixin Margin($s-top: 0, $s-bottom: 0, $s-left: 0, $s-right: 0){
-    margin-top: $s-top;  
-    margin-bottom: $s-bottom;
-    margin-left: $s-left;
-    margin-right: $s-right;
-}
-@mixin FontSLineH ($Fsize: 14px, $Lheight: 1.14) {
-    font-size: $Fsize;
-    line-height: $Lheight; 
-}
-@mixin LetterSpacing ($size: 0.03em) {
-    letter-spacing: $size;
+    align-items: center;
+    justify-content: center;
 }
 
-// @include centeredFlex($type: inline-block, $alicentered: stretch, $jucentered: flex-start);
+@mixin centeredBlock($type: block) {
+    display: $type;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+// Animation (@include)
+@mixin transition($type: background-color, $time: 250ms, $animation-type: cubic-bezier(0.4, 0, 0.2, 1)) {
+    transition: $type $time $animation-type;
+}
+
+
+// responsive (@include)
+$media-min: (
+    mobile: 480px,
+    tablet: 768px,
+    desktop: 1200px,
+);
+
+@mixin media-min($breakpoint) {
+    @each $breakpoints, $size in $media-min {
+        @if $breakpoint==$breakpoints {
+            @media screen and (min-width: $size) {
+                @content;
+            }
+        }
+    }
+}
+
+$media-max: (
+    mobile: 479px,
+    tablet: 767px,
+    desktop: 1199px,
+);
+
+@mixin media-max($breakpoint) {
+    @each $breakpoints, $size in $media-max {
+        @if $breakpoint==$breakpoints {
+            @media screen and (max-width: $size) {
+                @content;
+            }
+        }
+    }
+}
+
+
+
